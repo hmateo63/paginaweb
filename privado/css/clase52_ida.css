@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+.boletos_busclase52_ida{
+	margin:0 auto 0 auto; 
+	width:1011px; 
+}
+.boletos_busclase52_ida .busclase52_ida{
+	background-image:url(../images/clase52_arriba_bg_ida.png);
+	background-repeat:no-repeat;
+	width:559px;
+	height:149px;
+	float:left;
+	margin-left:5px;
+}
+.boletos_busclase52_ida .bus1clase52_ida{
+	background-image:url(../images/clase52_abajo_bg_ida.png);
+	background-repeat:no-repeat;
+	width:442px;
+	height:149px;
+	float:left;
+	margin-left:5px;
+}
+.boletos_busclase52_ida .estados{
+	padding-top:15px;
+	float:left;
+}
+.boletos_busclase52_ida .fila1{
+	margin-top:2px;
+	margin-left:30px;
+}
+.boletos_busclase52_ida .fila2{
+	margin-left:35px;
+}
+.boletos_busclase52_ida .clearespacio{
+	background-color:transparent;
+	width:5px;
+	height:27px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:0.75em;
+	text-shadow:1px 1px #EEE;
+	text-align:right;
+}
+.boletos_busclase52_ida .td{
+	text-align:right;
+}
+.boletos_busclase52_ida .td span{
+	padding-right:5px;
+}
+.boletos_busclase52_ida .espacio{
+	background-color:transparent;
+	width:30px;
+	height:27px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:1.1em;
+	text-shadow:2px 2px #000;
+	text-align:right;
+}
+.boletos_busclase52_ida .libre, .boletos_busclase52_ida .ocupado, .boletos_busclase52_ida .reservado, .boletos_busclase52_ida .compra, .boletos_busclase52_ida .espaciofull, .boletos_busclase52_ida .apartada, .boletos_busclase52_ida .noLocal{
+	background-color:transparent;
+	width:40px;
+	height:27px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:0.75em;
+	text-shadow:1px 1px #000;
+	text-align:center;
+	font-weight:bold;
+	color:#FFF;
+	/*border:1px solid #000;*/
+}
+.boletos_busclase52_ida .apartada{
+	cursor:pointer;
+	background-image:url(../images/butaca-apartada.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_ida .noLocal{
+	cursor:default;
+	background-image:url(../images/butaca-noLocal.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_ida .libre{
+	cursor:pointer;
+	background-image:url(../images/butaca-libre.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_ida .ocupado{
+	cursor:default;
+	background-image:url(../images/butaca-ocupada.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_ida .reservado{
+	cursor:default;
+	background-image:url(../images/butaca-reservada.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_ida .compra{
+	cursor:pointer;
+	background-image:url(../images/butaca-compra.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_ida .pasillo{
+	width:35px;
+	height:18px;
+}

@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+.boletos_bus60_ida{
+	margin:0 auto 0 auto; 
+	width:810px; 
+}
+.boletos_bus60_ida .bus60_ida{
+	background-image:url(../images/60_bg_ida.png);
+	background-repeat:no-repeat;
+	width:810px;
+	height:149px;
+	padding-left:10px;
+	float:left;
+}
+.boletos_bus60_ida .estados{
+	padding-top:10px;
+	float:left;
+}
+.boletos_bus60_ida .fila1{
+	margin-top:2px;
+	margin-left:80px;
+}
+.boletos_bus60_ida .fila2{
+	margin-left:80px;
+}
+.boletos_bus60_ida .td{
+	text-align:right;
+}
+.boletos_bus60_ida .td span{
+	padding-right:5px;
+}
+.boletos_bus60_ida .libre, .boletos_bus60_ida .ocupado, .boletos_bus60_ida .reservado, .boletos_bus60_ida .compra, .boletos_bus60_ida .apartada, .boletos_bus60_ida .noLocal{
+	background-color:transparent;
+	width:40px;
+	height:27px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:1.1em;
+	text-shadow:2px 2px #000;
+	text-align:center;
+	font-weight:bold;
+	color:#FFF;
+	/*border:1px solid #000;*/
+}
+.boletos_bus60_ida .apartada{
+	cursor:pointer;
+	background-image:url(../images/butaca-apartada.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus60_ida .noLocal{
+	cursor:default;
+	background-image:url(../images/butaca-noLocal.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus60_ida .libre{
+	cursor:pointer;
+	background-image:url(../images/butaca-libre.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus60_ida .ocupado{
+	cursor:default;
+	background-image:url(../images/butaca-ocupada.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus60_ida .reservado{
+	cursor:default;
+	background-image:url(../images/butaca-reservada.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus60_ida .compra{
+	cursor:pointer;
+	background-image:url(../images/butaca-compra.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus60_ida .pasillo{
+	width:35px;
+	height:14px;
+}

@@ -1,0 +1,200 @@
+﻿Imports Microsoft.VisualBasic
+Imports System
+Imports System.Data
+Imports MySql.Data
+Imports MySql.Data.MySqlClient
+Imports System.IO
+
+Public Class FuncionesGuateFacturas
+    Private MysqlCommand As New MySqlCommand
+    'Dim MysqlConnString As String = "server=localhost;user=root;password=Corporation01;database=encomiendas;port=3306"
+    Dim MysqlConnString As String = System.Configuration.ConfigurationManager.ConnectionStrings("EjemploConString").ConnectionString
+    Public MysqlConexion As MySqlConnection = New MySqlConnection(MysqlConnString)
+
+    Public Shared Function GuateFacturaGeneraDocumentoRetraer(ByVal GuateFac_pUsuario As String _
+        , ByVal GuateFac_pPassword As String _
+        , ByVal GuateFac_pNitEmisor As String _
+        , ByVal GuateFac_pEstablecimiento As Decimal _
+        , ByVal GuateFac_pTipoDoc As Decimal _
+        , ByVal GuateFac_pIdMaquina As String _
+        , ByVal GuateFac_pTipoRespuesta As String _
+        , ByVal pXml As String _
+        ) As String
+        Dim retorna As String = ""
+        Dim wsgd1r As New com.guatefacturas.dte.Guatefac
+        Dim a As String = wsgd1r.generaDocumento(GuateFac_pUsuario, GuateFac_pPassword, GuateFac_pNitEmisor, GuateFac_pEstablecimiento, GuateFac_pTipoDoc, GuateFac_pIdMaquina, GuateFac_pTipoRespuesta, pXml)
+        Try
+            retorna = a
+        Catch
+            retorna = "no retrajo"
+        End Try
+
+        Return retorna
+    End Function
+
+    Public Shared Function fn_QuitarSignosDeDesigualdad(ByVal sXlm0 As String) As String
+        Dim sXlm1 As String = Replace(sXlm0, "<", "│")
+        Dim sXlm2 As String = Replace(sXlm1, ">", "│")
+        Dim sXlm3 As String = Replace(sXlm2, "/", "")
+        Dim sXlm4 As String = Replace(sXlm3, "││", "│")
+
+        Return sXlm4
+    End Function
+
+    Public Shared Function cargar_datatable(ByVal strsql As String) As System.Data.DataTable
+        Using conexion As New MySqlConnection
+            conexion.ConnectionString = FunGuateFacCadenaCon()
+            Dim ds As New System.Data.DataTable
+            Try
+                conexion.Open()
+                Dim comando As New MySqlCommand(strsql, conexion)
+                'comando.CommandTimeout = 500
+                Dim da As New MySqlDataAdapter(comando)
+                da.Fill(ds)
+                comando.Dispose()
+                da.Dispose()
+            Catch ex As MySqlException
+            Finally
+                conexion.Close()
+            End Try
+            Return ds
+        End Using
+    End Function
+
+    Shared Function FunGuateFacCadenaCon() As String
+        Dim MysqlConnString As String = System.Configuration.ConfigurationManager.ConnectionStrings("EjemploConString").ConnectionString
+        Return MysqlConnString
+    End Function
+
+
+
+    'Declaración
+    Shared Function GenerarFacturaElectronicaFG(ByVal GuateFac_pUsuario As String _
+        , ByVal GuateFac_pPassword As String _
+        , ByVal GuateFac_pNitEmisor As String _
+        , ByVal GuateFac_pEstablecimiento As Decimal _
+        , ByVal GuateFac_pTipoDoc As Decimal _
+        , ByVal GuateFac_pIdMaquina As String _
+        , ByVal GuateFac_pTipoRespuesta As String _
+        , ByVal pXml As String) As String
+
+
+        Dim a As String = Replace(FuncionesGuateFacturas.GuateFacturaGeneraDocumentoRetraer(GuateFac_pUsuario _
+                        , GuateFac_pPassword _
+                        , GuateFac_pNitEmisor _
+                        , GuateFac_pEstablecimiento _
+                        , GuateFac_pTipoDoc _
+                        , GuateFac_pIdMaquina _
+                        , GuateFac_pTipoRespuesta _
+                        , pXml), "&", "Y")
+
+        Dim _cae As String = ""
+        Dim _numerofactura As String = ""
+        Dim _detalles As String = ""
+        Dim _serie As String = ""
+        Dim _Cae1 As String = ""
+        Dim _Cae2 As String = ""
+        Dim _Kae As String = ""
+        Dim _Face As String = ""
+        Dim _resultado As String = ""
+        Dim _Nombre As String = ""
+        Dim _Direccion As String = ""
+        Dim _Telefono As String = ""
+
+        'aqui debo de caputar la palabra serie
+
+        'Dim arrayfactura As Array = a.Split("Serie")
+        'Dim Serie As String = arrayfactura(1)
+        'MsgBox(Serie)
+
+
+
+
+
+
+
+
+        Dim strReader As New StringReader(a)
+
+        Dim ds As New DataSet()
+        ds.ReadXml(strReader)
+
+        Dim parar As String = "pare"
+
+        For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+            Dim nLen As Integer = Len(Trim(ds.Tables(0).Rows(i)("Firma").ToString()))
+            Dim sFirma As String = Trim(ds.Tables(0).Rows(i)("Firma").ToString())
+
+            If nLen > 0 Then
+                _serie = ds.Tables(0).Rows(i)("Serie").ToString()
+                '_Face = ds.Tables(0).Rows(i)("Serie").ToString() & "-" & ds.Tables(0).Rows(i)("Preimpreso").ToString()
+                '_Face = ds.Tables(0).Rows(i)("Serie").ToString.Replace("-", "")
+                _Face = ds.Tables(0).Rows(i)("Serie").ToString()
+
+
+
+
+
+                _Kae = ds.Tables(0).Rows(i)("Firma").ToString()
+                _cae = ds.Tables(0).Rows(i)("Firma").ToString()
+                Dim LargoKae As Integer = Len(_cae)
+                If LargoKae Mod 2 = 0 Then
+                    _Cae1 = Left(_cae, LargoKae / 2)
+                    _Cae2 = Right(_cae, LargoKae / 2)
+                Else
+                    _Cae1 = Left(_cae, Int((LargoKae / 2) + 1))
+                    _Cae2 = Right(_cae, LargoKae / 2)
+                End If
+                _numerofactura = ds.Tables(0).Rows(i)("Preimpreso").ToString()
+                _detalles = "ERROR:"
+                _resultado = "valido"
+
+                _Nombre = ds.Tables(0).Rows(i)("Nombre").ToString()
+                _Direccion = ds.Tables(0).Rows(i)("Direccion").ToString()
+                _Telefono = ds.Tables(0).Rows(i)("Telefono").ToString()
+
+
+                '        0            1              2                  3             4             5                    6     
+
+
+            End If
+        Next
+
+        Dim pare As String = ""
+
+
+        Return _Face & "|" & _cae & "|" & _numerofactura & "|" & _Cae1 & "|" & _Cae2 & "|" & _detalles & "|" & _resultado & "|" & _Nombre & "|" & _Direccion & "|" & _Telefono
+
+
+
+    End Function
+
+    Shared Function FechaHoy() As String
+        Dim rFecha As String = ""
+        Using connection As New MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("EjemploConString").ConnectionString)
+
+            Try
+                connection.Open()
+                Dim StrConsulta As String = "select DATE_FORMAT(curdate(),'%d/%m/%Y') as fecha"
+                Dim ComandoHorario As New MySqlCommand(String.Format(StrConsulta), connection)
+                Dim Lector As MySqlDataReader = ComandoHorario.ExecuteReader()
+                Lector.Read()
+
+                If Lector.HasRows Then
+                    rFecha = Lector("fecha")
+
+                Else
+                    rFecha = "00/00/0000"
+                End If
+            Catch ex As Exception
+                rFecha = "00/00/0000"
+
+            End Try
+            Return rFecha
+
+        End Using
+
+    End Function
+
+End Class
+

@@ -1,0 +1,89 @@
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="TarjetaRutaImpresion.aspx.vb"
+    Inherits="privado_TarjetaRutaImpresion" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <div id="div1" class="widget grid12">
+        <a class="navbar-brand" href="DashBoard.aspx">Regresar</a>
+        <img src="<% =Session("UrlImagen")%>" style="width: 90px" alt="" />
+        <form id="form1" runat="server">
+        <input type="hidden" runat="server" id="husuario" />
+        <input type="hidden" runat="server" id="hagencia" />
+        <!--DIV FLUID-->
+        <div class="fluid">
+            <!--DIV BUSQUEDA-->
+            <div id="divbusqueda" class="widget grid12">
+                <div class="whead">
+                    <h2 id="titulo">
+                        Resumen de Tarjetas</h2>
+                </div>
+                &nbsp;&nbsp;&nbsp;
+                <div class='formrow'>
+                    <asp:Label ID="Label1" runat="server" Text="Fecha Inicial"></asp:Label>
+                    <asp:TextBox ID="txtFechaInicial" runat="server" MaxLength="20" Style="text-align: right;
+                        height: 27px; border: solid 1px #BEBEBE;" name="regular"></asp:TextBox>
+                </div>
+                <div class='formrow'>
+                    <asp:Label ID="Label2" runat="server" Text="Fecha Final"></asp:Label>
+                    <asp:TextBox ID="txtFechaFinal" runat="server" MaxLength="20" Style="text-align: right;
+                        height: 27px; border: solid 1px #BEBEBE;" name="regular"></asp:TextBox>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <%--            ***************************--%>
+                <div class='formrow'>
+                    <label for="tel2" class="col-md-1 control-label">
+                        Agencia</label>
+                    <div class="col-md-3">
+                        <asp:DropDownList ID="DropAgencia" runat="server" class="form-control input-sm">
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class='formrow'>
+                    <label for="tel2" class="col-md-1 control-label">
+                        Vehiculos</label>
+                    <div class="col-md-3">
+                        <asp:DropDownList ID="DropVehiculos" runat="server" class="form-control input-sm">
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class='formrow'>
+                    <label for="tel2" class="col-md-1 control-label">
+                        Pilotos</label>
+                    <div class="col-md-3">
+                        <asp:DropDownList ID="DropPilotos" runat="server" class="form-control input-sm">
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class='formrow'>
+                    <label for="tel2" class="col-md-1 control-label">
+                        Sevicios</label>
+                    <div class="col-md-3">
+                        <asp:DropDownList ID="DropServicios" runat="server" class="form-control input-sm">
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="formrow">
+                    <asp:Button ID="Button2" runat="server" Text="Reporte" class="buttonS bLightBlue"
+                        ToolTip="Genera la consulta, luego puede generar archivo en excel " />
+                    <asp:Button ID="Button1" runat="server" Text="Exportar a Excel" OnClick="ExportToExcel"
+                        class="buttonS bLightBlue" Visible="False" />
+                    <asp:Button ID="btnToPdf" runat="server" Text="Exportar a Pdf" OnClick="ExportToPdf"
+                        class="buttonS bLightBlue" Visible="False" />
+                    <asp:Button ID="btnToWord" runat="server" Text="Exportar a Word" OnClick="ExportToWord"
+                        class="buttonS bLightBlue" Visible="False" />
+                </div>
+                <div class="formrow">
+                    <asp:GridView ID="GridView1" runat="server">
+                    </asp:GridView>
+                </div>
+            </div>
+        </div>
+        <%--            ***************************--%>
+        </form>
+    </div>
+</body>
+</html>

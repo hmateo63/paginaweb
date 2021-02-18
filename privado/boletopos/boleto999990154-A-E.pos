@@ -1,0 +1,48 @@
+ 
+#Guia#No
+#Factura#No
+#Boleto#Si
+#FechaEmision#05/ABR/2013
+#PaseDeAbordaje#Si
+#BARCODE#344
+#NombreEmpresa#Rutas Orientales.
+#NitEmpresa#1234567
+#NombreComercial#Rutas Orientales
+#DireccionAgencia#km. 8.5 carretera al Atlantico Zona 18, Guatemala
+#SerieFactura#
+#NumeroFactura#
+#SujetoAPagosTrimestrales#SEGUN ART. 72 LEY ISR, NO REALIZAR RETENCION
+#NumeroResolucion#12345678
+#FechaResolucion#20121005
+#Face#FACE63TE
+#Cae1#PENDI
+#Cae2#ENTE
+#NitCliente#___________________________
+#NombreCliente#___________________________
+#DireccionCliente#___________________________
+#Cantidad1#1
+#Descripcion1#Boletos
+#Valor1#50.00
+#Total#50.00
+#NumeroAsiento#0
+#Servicio#Especial
+#Reimpresion#-
+#Correlativo#344
+#DTE#FACE63TE
+#AtendidoPor#admin
+#BoletosCantidad#1
+#NumeroBoleto#000000344
+#Origen#CD
+#FechaViaje#05-04-2013
+#HoraViaje#04.00.00
+#Bus#S/A
+#Pasajero#-
+#Destino#ES
+#NombreDestino#Esquipulas
+#FechaEmision#05/ABR/2013
+#Butaca#1
+#ValorSinSeguro#50
+#BoletoSerie#A-E
+#BoletoFactura#700056
+#FinBoleto#SI
+ 

@@ -1,0 +1,91 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="privado_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Boletos De Ruta</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="icon" href='img/logo-icon.png' sizes="32x32" type="image/png">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav class="navbar navbar-default ">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Boletos De Ruta</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="tarjetaruta.aspx"><i class="glyphicon glyphicon-list-alt"></i>Tarjeta</a></li>
+                    <li><a href="DetalleViaticos.aspx"><i class="glyphicon glyphicon-list-alt"></i>Viaticos</a></li>
+                    <li><a href="ResumenDeTarjetas.aspx"><i class="glyphicon glyphicon-list-alt"></i>Resumen
+                        de Tarjetas</a></li>
+                    <li><a href="ResumenLiquidacionFacturas.aspx"><i class="glyphicon glyphicon-list-alt">
+                    </i>Resumen de Liquidacion de Facturas</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <%--                    <li><a href="https://www.crcompumania.com/contacto/" target='_blank'><i class='glyphicon glyphicon-envelope'></i>Soporte</a></li>
+                    --%>
+                    <li><a href="../login.aspx"><i class='glyphicon glyphicon-off'></i>Salir</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <%--    <div class="container">--%>
+    <%--        <div class="panel panel-info">--%>
+    <%--            <div class="panel-body">
+    --%>
+    <form id="form1" runat="server" class="form-horizontal">
+    <%--    <div class="container">--%>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <%--    </div>
+    --%>
+    </form>
+    </div>
+    <hr>
+    <%--    footer--%>
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text pull-left">
+                &copy; 2012<script>                               new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());</script>,
+                Grupo GM. <a href="https://grupogm.com" target="_blank" style="color: #ecf0f1">IT
+                </a>
+            </p>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+    <!--
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		-->
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/VentanaCentrada.js"></script>
+    <script type="text/javascript" src="js/facturas.js"></script>
+</body>
+</html>

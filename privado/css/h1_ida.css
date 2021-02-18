@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+.bus{
+	background-image:url(../images/h1_bg_ida.png);
+	background-repeat:no-repeat;
+	width:375px;
+	height:190px;
+	padding-top:10px;
+	padding-left:10px;
+	float:left;
+}
+.estados{
+	padding-top:20px;
+	float:left;
+}
+.fila1{
+	margin-top:20px;
+	margin-left:115px;
+}
+.td{
+	text-align:right;
+}
+.td span{
+	padding-right:5px;
+}
+.libre, .ocupado, .reservado, .compra, .piloto{
+	background-color:transparent;
+	width:45px;
+	height:31px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:0.75em;
+	text-shadow:1px 1px #EEE;
+	text-align:right;
+	/*border:1px solid #000;*/
+}
+.libre{
+	cursor:pointer;
+	background-image:url(../images/butaca-libre.png);
+	background-repeat:no-repeat;
+}
+.piloto{
+	cursor:default;
+	background-image:url(../images/butaca-piloto.png);
+	background-repeat:no-repeat;
+}
+.ocupado{
+	cursor:default;
+	background-image:url(../images/butaca-ocupada.png);
+	background-repeat:no-repeat;
+}
+.reservado{
+	cursor:default;
+	background-image:url(../images/butaca-reservada.png);
+	background-repeat:no-repeat;
+}
+.compra{
+	cursor:pointer;
+	background-image:url(../images/butaca-compra.png);
+	background-repeat:no-repeat;
+}
+.pasillo{
+	width:35px;
+	height:20px;
+}

@@ -1,0 +1,72 @@
+@charset "utf-8";
+.boletos_bus19_vuelta{
+	margin:0 auto 0 auto; 
+	width:410px; 
+}
+.boletos_bus19_vuelta .bus19_vuelta{
+	background-image:url(../images/19_bg_vuelta.png);
+	background-repeat:no-repeat;
+	width:410px;
+	height:190px;
+	padding-left:10px;
+	float:left;
+}
+.boletos_bus19_vuelta .estados{
+	margin-top:20px;
+	float:left;
+}
+.boletos_bus19_vuelta .fila1{
+	margin-left:30px;
+	margin-top:22px;
+}
+.boletos_bus19_vuelta .fila2{
+	margin-left:55px;
+}
+.boletos_bus19_vuelta .td{
+	text-align:right;
+}
+.boletos_bus19_vuelta .td span{
+	padding-right:5px;
+}
+.boletos_bus19_vuelta .libre, .boletos_bus19_vuelta .ocupado, .boletos_bus19_vuelta .reservado, .boletos_bus19_vuelta .compra, .boletos_bus19_vuelta .piloto{
+	background-color:transparent;
+	width:45px;
+	height:31px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:0.75em;
+	text-shadow:1px 1px #EEE;
+	text-align:left;
+	/*border:1px solid #000;*/
+} 
+.boletos_bus19_vuelta .piloto{
+	cursor:default;
+	background-image:url(../images/butaca-piloto-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus19_vuelta .libre{
+	cursor:pointer;
+	background-image:url(../images/butaca-libre-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus19_vuelta .ocupado{
+	cursor:default;
+	background-image:url(../images/butaca-ocupada-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus19_vuelta .reservado{
+	cursor:default;
+	background-image:url(../images/butaca-reservada-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus19_vuelta .compra{
+	cursor:pointer;
+	background-image:url(../images/butaca-compra-v.png);
+	background-repeat:no-repeat;
+
+}
+.boletos_bus19_vuelta .pasillo{
+	width:35px;
+	height:20px;
+}

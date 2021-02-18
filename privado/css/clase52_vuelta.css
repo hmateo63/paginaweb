@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+.boletos_busclase52_vuelta{
+	margin:0 auto 0 auto; 
+	width:1011px; 
+}
+.boletos_busclase52_vuelta .busclase52_vuelta{
+	background-image:url(../images/clase52_arriba_bg_vuelta.png);
+	background-repeat:no-repeat;
+	width:559px;
+	height:149px;
+	float:left;
+	margin-left:5px;
+}
+.boletos_busclase52_vuelta .bus1clase52_vuelta{
+	background-image:url(../images/clase52_abajo_bg_vuelta.png);
+	background-repeat:no-repeat;
+	width:442px;
+	height:149px;
+	float:left;
+	margin-left:5px;
+}
+.boletos_busclase52_vuelta .estados{
+	padding-top:15px;
+	float:left;
+}
+.boletos_busclase52_vuelta .fila1{
+	margin-top:1px;
+	margin-left:70px;
+}
+.boletos_busclase52_vuelta .fila2{
+	margin-left:35px;
+}
+.boletos_busclase52_vuelta .clearespacio{
+	background-color:transparent;
+	width:5px;
+	height:31px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:0.75em;
+	text-shadow:1px 1px #EEE;
+	text-align:right;
+}
+.boletos_busclase52_vuelta .td{
+	text-align:right;
+}
+.boletos_busclase52_vuelta .td span{
+	padding-right:5px;
+}
+.boletos_busclase52_vuelta .espacio{
+	background-color:transparent;
+	width:30px;
+	height:31px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:0.75em;
+	text-shadow:1px 1px #EEE;
+	text-align:left;
+}
+.boletos_busclase52_vuelta .libre, .boletos_busclase52_vuelta .ocupado, .boletos_busclase52_vuelta .reservado, .boletos_busclase52_vuelta .compra, .boletos_busclase52_vuelta .espaciofull, .boletos_busclase52_vuelta .apartada, .boletos_busclase52_vuelta .noLocal{
+	background-color:transparent;
+	width:40px;
+	height:27px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:1.1em;
+	text-shadow:2px 2px #000;
+	text-align:center;
+	font-weight:bold;
+	color:#FFF;
+	/*border:1px solid #000;*/
+}
+.boletos_busclase52_vuelta .apartada{
+	cursor:pointer;
+	background-image:url(../images/butaca-apartada-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_vuelta .noLocal{
+	cursor:default;
+	background-image:url(../images/butaca-noLocal-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_vuelta .libre{
+	cursor:pointer;
+	background-image:url(../images/butaca-libre-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_vuelta .ocupado{
+	cursor:default;
+	background-image:url(../images/butaca-ocupada-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_vuelta .reservado{
+	cursor:default;
+	background-image:url(../images/butaca-reservada-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_vuelta .compra{
+	cursor:pointer;
+	background-image:url(../images/butaca-compra-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busclase52_vuelta .pasillo{
+	width:35px;
+	height:12px;
+}

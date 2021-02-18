@@ -1,0 +1,453 @@
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="ResumenTarjetas.aspx.vb"
+    Inherits="privado_ResumenTarjetas" %>
+
+<!doctype html>
+<html lang="en">
+<head runat="server">
+    <%--    ********************************************--%>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>LITEGUA</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="source/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="css/notifications.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery1.8.3.js" type="text/javascript"></script>
+    <script src="js/jquery1.92.2.js" type="text/javascript"></script>
+    <script src="source/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="js/jquery.notifications.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/plugins/charts/excanvas.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/charts/jquery.flot.js"></script>
+    <script type="text/javascript" src="../js/plugins/charts/jquery.flot.orderBars.js"></script>
+    <script type="text/javascript" src="../js/plugins/charts/jquery.flot.pie.js"></script>
+    <script type="text/javascript" src="../js/plugins/charts/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="../js/plugins/charts/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/tables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="../js/plugins/tables/jquery.sortable.js"></script>
+    <script type="text/javascript" src="../js/plugins/tables/jquery.resizable.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.autosize.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.uniform.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.autotab.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.select2.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.dualListBox.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.cleditor.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.ibutton.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.validationEngine-en.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="../js/plugins/uploader/plupload.js"></script>
+    <script type="text/javascript" src="../js/plugins/uploader/plupload.html4.js"></script>
+    <script type="text/javascript" src="../js/plugins/uploader/plupload.html5.js"></script>
+    <script type="text/javascript" src="../js/plugins/uploader/jquery.plupload.queue.js"></script>
+    <script type="text/javascript" src="../js/plugins/wizards/jquery.form.wizard.js"></script>
+    <script type="text/javascript" src="../js/plugins/wizards/jquery.validate.js"></script>
+    <script type="text/javascript" src="../js/plugins/wizards/jquery.form.js"></script>
+    <script type="text/javascript" src="../js/plugins/ui/jquery.collapsible.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/ui/jquery.breadcrumbs.js"></script>
+    <script type="text/javascript" src="../js/plugins/ui/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="../js/plugins/ui/jquery.progress.js"></script>
+    <script type="text/javascript" src="../js/plugins/ui/jquery.timeentry.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/ui/jquery.colorpicker.js"></script>
+    <script type="text/javascript" src="../js/plugins/ui/jquery.jgrowl.js"></script>
+    <script type="text/javascript" src="../js/plugins/ui/jquery.fileTree.js"></script>
+    <script type="text/javascript" src="../js/plugins/ui/jquery.sourcerer.js"></script>
+    <script type="text/javascript" src="../js/plugins/others/jquery.fullcalendar.js"></script>
+    <script type="text/javascript" src="../js/plugins/others/jquery.elfinder.js"></script>
+    <script type="text/javascript" src="../js/plugins/forms/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="../js/plugins/ui/jquery.easytabs.min.js"></script>
+    <script type="text/javascript" src="../js/files/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/files/functions.js"></script>
+    <style type="text/css">
+        .mostrar
+        {
+            position: relative;
+            float: left;
+            width: 350px;
+        }
+        .ocultar
+        {
+            position: relative;
+            float: left;
+            width: 350px;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+
+        var usuario = ""
+        var numerodetalles = 0;
+        var origenes = "";
+        var contaclick = 0;
+
+
+
+        $(function () {
+            $("#txtfechainicialreporte").datepicker({
+                numberOfMonths: 1,
+                dateFormat: 'yy/mm/dd',
+                firstDay: 0
+            });
+
+            $("#txtfechainicialreporte").datepicker().datepicker("setDate", new Date());  // por default la fecah del dia
+        });
+
+
+        $(function () {
+            $("#txtfechafinalreporte").datepicker({
+                numberOfMonths: 1,
+                dateFormat: 'yy/mm/dd',
+                firstDay: 0
+            });
+
+            $("#txtfechafinalreporte").datepicker().datepicker("setDate", new Date());
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+        //INICIO DOCUMENT READY
+        $(document).ready(function () {
+
+            if (document.getElementById('husuario').value == "") {
+                mensajeerrorpermanente("No se ha obtenido el dato del Usuario");
+                return false;
+            } else {
+                usuario = document.getElementById('husuario').value;
+                document.getElementById('usuario').innerHTML = usuario;
+            }
+
+
+
+            // INICIO CargarAgencias
+            $.ajax({
+                type: "POST",
+                url: "WStarjetaruta.asmx/CargarAgencias",
+                data: '{usuario: "' + usuario + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (msg) {
+                    Agencias = msg.d;
+
+                    $('#DropAgenciaReporte').html('');
+                    $('#DropAgenciaReporte').append('<option value="%">TODAS</option>');
+
+                    $.each(msg.d, function () {
+                        $('#DropAgenciaReporte').append('<option value="' + this.idagencia + '">' + this.nombreagencia + '</option>');
+                    });
+                },
+                error: function (msg) { alert("Error " + msg.responseText); }
+            });
+            // FINAL  CargarAgencias
+
+
+            // INICIO CARGA VEHCULOS
+            $.ajax({
+                type: "POST",
+                url: "WStarjetaruta.asmx/CargarVehiculo",
+                data: '{usuario: "' + usuario + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (msg) {
+                    Vehiculos = msg.d;
+
+                    $('#DropVehiculoReporte').html('');
+                    $('#DropVehiculoReporte').append('<option value="%">TODOS</option>');
+
+                    $.each(msg.d, function () {
+                        $('#DropVehiculoReporte').append('<option value="' + this.idvehiculo + '">' + this.nombrevehiculo + '</option>');
+                    });
+                },
+                error: function (msg) { alert("Error " + msg.responseText); }
+            });
+
+            //
+
+
+            // INICIO CARGA SERVICIOS
+            $.ajax({
+                type: "POST",
+                url: "WStarjetaruta.asmx/CargarServicios",
+                data: '{usuario: "' + usuario + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (msg) {
+                    Servicio = msg.d;
+
+                    $('#DropServicioReporte').html('');
+                    $('#DropServicioReporte').append('<option value="%">TODOS</option>');
+
+                    $.each(msg.d, function () {
+                        $('#DropServicioReporte').append('<option value="' + this.idservicio + '">' + this.nombreservicio + '</option>');
+                    });
+                },
+                error: function (msg) { alert("Error " + msg.responseText); }
+            });
+
+
+            //
+
+
+            //inicio carga pilotos
+
+            $.ajax({
+                type: "POST",
+                url: "WStarjetaruta.asmx/CargarPilotos",
+                data: '{usuario: "' + usuario + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (msg) {
+                    Pilotos = msg.d;
+
+                    $('#DropPilotoReporte').html('');
+                    $('#DropPilotoReporte').append('<option value="%">TODOS</option>');
+
+                    $.each(msg.d, function () {
+                        $('#DropPilotoReporte').append('<option value="' + this.idpiloto + '">' + this.nombrepiloto + '</option>');
+                    });
+                },
+                error: function (msg) { alert("Error " + msg.responseText); }
+            });
+            //
+
+
+            $("#btnresumentarjetas").click(function () {
+
+                //$('#btnresumentarjetas').prop('disabled', true);
+                var fechainicial = "";
+                var fechafinal = "";
+                var agencia = "";
+                var servicio = "";
+                var vehiculo = "";
+                var piloto = "";
+                
+                //$("#titulo").html(' RESUMEN DE TARJETAS  <a href="#" onclick="mostrarresumentarjetas();" style="text-align:right;margin-left: 875px;"><img src="../images/icons/usual/icon-arrowleft.png" style="width: 20px;"> REGRESAR </a>');
+
+
+
+                fechainicial = document.getElementById('txtfechainicialreporte').value;
+                fechafinal = document.getElementById('txtfechafinalreporte').value;
+                vehiculo = document.getElementById('DropVehiculoReporte').value;
+                piloto = document.getElementById('DropPilotoReporte').value;
+                agencia = document.getElementById('DropAgenciaReporte').value;
+                servicio = document.getElementById('DropServicioReporte').value;
+
+
+                 $.ajax({
+                    type: "POST",
+                    url: "WStarjetaruta.asmx/ResumenTarjetas",
+                    data: '{FechaInicial: "' + fechainicial + '",FechaFinal:"' + fechafinal + '",Agencia:"' + agencia + '",Servicio:"' + servicio + '",Vehiculo:"' + vehiculo + '",Piloto:"' + piloto + '",Usuario: "' + usuario + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: resumenboletos,
+                    beforeSend: function () {
+                        //$("#cargar").removeClass("ocultar");
+                        //$("#cargar").addClass("mostrar");
+                    },
+                    complete: function () {
+                        //$("#cargar").removeClass("mostrar");
+                        //$("#cargar").addClass("ocultar");
+                    },
+                    error: resumenboletosno
+                });
+
+
+
+                function resumenboletos(msg) {
+                    $("#divbusqueda").fadeOut("slow");
+                    $(".formRow").html('');
+                    $(".grid2").remove();
+
+
+                    datos = msg.d;
+                    var codigohtmlresult = "";
+                    var codigohtmlfinal = "";
+
+
+                    var Encabezado = "<table class='tablereporte'><tr class='tablereporte'><th class='tablereporteth'>FECHA VIAJE</th><th class='tablereporteth'># TARJETA</th><th class='tablereporteth'>BUS</th><th class='tablereporteth'>HORARIOS</th><th class='tablereporteth'>SERVICIO</th><th class='tablereporteth'>RUTAS</th><th class='tablereporteth'>PILOTOS</th><th class='tablereporteth'>ASISTENTE</th><th class='tablereporteth'>AGENCIA</th><th class='tablereporteth'>USUARIO</th><th class='tablereporteth'>TOTAL B. RUTA</th><th class='tablereporteth'>TOTAL B. AGENCIA</th><th class='tablereporteth'>TOTAL CARGA</th><th class='tablereporteth'>TOTAL TARJETA</th></tr> ";
+                    var colorOff = "background: rgb(241, 241, 241) ; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; ";
+                    var colorOn = "background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; ";
+                    var estiloTotales = "background: rgb(241, 241, 241) ;border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; ;font-size: 1.5em;;font-size: 1.5em;font-size: 1.5em;;font-size: 1.5em; ;border-top: 3px double;";
+                    var totales = " <th class='tablereporteth' colspan='3' style='" + estiloTotales + "'> TOTALES</th>";
+                    var estiloPdf = ";font-size: 15px;text-decoration: underline;font-weight: bold;'><a href='#' title='Hacer clic aqui para ver un resumen de la tarjeta' onclick=tarjetadetalladapdf('"
+                    var estiloMoneda = ";font-size: 1.4em;";
+                    var tr = "<tr class='tablereporte'>";
+                    var td = "<td class='tablereportetd' style='";
+                    var dbl = " ;border-top: 3px double;"
+
+                    $.each(msg.d, function () {
+
+
+                        this.fila = replaceAll(this.fila, "<table>", Encabezado);
+                        this.fila = replaceAll(this.fila, "#tr", tr);
+                        this.fila = replaceAll(this.fila, "#td", td);
+                        this.fila = replaceAll(this.fila, "#dbl", dbl);
+                        this.fila = replaceAll(this.fila, "#pdf", estiloPdf);
+                        this.fila = replaceAll(this.fila, "#totales", totales);
+                        this.fila = replaceAll(this.fila, "#on", colorOn);
+                        this.fila = replaceAll(this.fila, "#off", colorOff);
+                        this.fila = replaceAll(this.fila, "#Q", estiloMoneda);
+
+
+                        codigohtmlresult += this.fila;
+
+
+                    });
+
+                    $("#tabla").append(codigohtmlresult);
+                    //$("#divbusqueda").fadeIn("slow");
+
+
+                }
+
+                function resumenboletosno(msg) { mensajeerrorpermanente(msg.responseText); }
+
+
+
+
+
+
+            });
+
+        });
+        //FIN DOCUMENT READY
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <input type="text" runat="server" id="husuario" />
+    <input type="text" runat="server" id="hagencia" />
+    <input type="text" runat="server" id="husuario2" />
+    <span id="usuario"></span>
+    <div id="div1" class="widget grid12">
+        <div class='whead'>
+            <h6 id='titulo'>
+                RESUMEN DE TARJETAS
+            </h6>
+        </div>
+        <div class='grid2' style='margin: 10px -40px 10px 25px;'>
+            Fecha Inicial
+            <input id='txtfechainicialreporte' class='textboxshadow' style='text-align: right;
+                width: 130px; height: 27px; border: solid 1px #BEBEBE;' type='text' name='regular' />
+        </div>
+        <div class='grid2' style='margin: 10px -40px 10px 0px;'>
+            Fecha Final
+            <input id='txtfechafinalreporte' type='text' style='text-align: right; height: 27px;
+                width: 130px; border: solid 1px #BEBEBE;' class='textboxshadow' name='regular' />
+        </div>
+        <div class='grid2' style='margin: 10px -30px 10px 0px;'>
+            Agencia
+            <select id='DropAgenciaReporte' style='width: 80%;'>
+            </select></div>
+        <div class='grid2' style='margin: 10px -30px 10px 0px;'>
+            Vehiculo &nbsp;
+            <select id='DropVehiculoReporte' style='width: 80%;'>
+            </select></div>
+        <div class='grid2' style='margin: 10px -30px 10px 0px;'>
+            Piloto &nbsp;&nbsp;<select id='DropPilotoReporte' style='width: 80%;'></select></div>
+
+        <div class='grid2' style='margin: 10px -30px 10px 0px;'>
+            Servicio &nbsp;&nbsp;<select id='DropServicioReporte' style='width: 80%;'></select></div>
+
+
+
+        <div class='grid2' style='margin: 10px -30px 10px 0px;'>
+            <input type='button' value='Generar Reporte' class='buttonS bLightBlue' id='btnresumentarjetas'
+                style='margin: 10px 10px 10px 0px;'></div>
+        <input type='button' value='Exportar' class='buttonS bLightBlue' id='btnExport' onclick='ExportToExcel'
+            style='margin: 10px 10px 10px 0px;'></div>
+    <div id="divbusqueda" class="widget grid12" style="margin: 50px -15%; width: 113%;
+        display: block;">
+        <div class="whead">
+            <h6 id="H1">
+                RESUMEN DE TARJETAS
+            </h6>
+        </div>
+        <div class="formrow">
+        </div>
+        <div id="cargar" class="ocultar" style="float: right; margin-top: -43px; margin-right: -300px;
+            font-weight: bold;">
+            <img src="../images/elements/loaders/4s.gif" alt="Cargando"></div>
+    </div>
+
+            <div class='grid2' style='margin: 10px -30px 10px 0px;'>
+            Servicio &nbsp;&nbsp;<select id='DropTarjetasReporte' style='width: 80%;'></select></div>
+
+
+<div>
+<table class="tablereporte">
+	<tbody>
+		<tr class="tablereporte">
+			<th class="tablereporteth">FECHA VIAJE</th>
+			<th class="tablereporteth"># TARJETA</th>
+			<th class="tablereporteth">BUS</th>
+			<th class="tablereporteth">HORARIOS</th>
+			<th class="tablereporteth">SERVICIO</th>
+			<th class="tablereporteth">RUTAS</th>
+			<th class="tablereporteth">PILOTOS</th>
+			<th class="tablereporteth">ASISTENTE</th>
+			<th class="tablereporteth">AGENCIA</th>
+			<th class="tablereporteth">USUARIO</th>
+			<th class="tablereporteth">TOTAL B. RUTA</th>
+			<th class="tablereporteth">TOTAL B. AGENCIA</th>
+			<th class="tablereporteth">TOTAL CARGA</th>
+			<th class="tablereporteth">TOTAL TARJETA</th>
+		</tr> 
+		
+		
+		<tr class="tablereporte"  id="tabla" >
+
+<%--			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; "> 2017-09-04</td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; ;font-size: 15px;text-decoration: underline;font-weight: bold;"><a href="#" title="Hacer clic aqui para ver un resumen de la tarjeta" onclick="tarjetadetalladapdf('73778');"> 73778</a></td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; "> 89</td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; "> 00:05:00</td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; "> PRIMERA PLUS</td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; "> PB-GT</td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; "> RENE ALBERTO MACZ MILIAN</td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; "> JOSE CARLOS MOLINA MORALES</td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; "> </td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; "> admin</td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; ;font-size: 1.4em;">Q. 0.00</td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; ;font-size: 1.4em;">Q. 0.00</td>
+			<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; ;font-size: 1.4em;">Q. 0.00</td>
+		<td class="tablereportetd" style="background: white; border: 1px solid #cdcdcd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: 0 2px 2px -2px #ccc; ;font-size: 1.4em;">Q. 0.00</td></tr>
+
+        --%>
+
+	</tbody>
+</table>											
+
+</div>
+
+
+
+
+
+
+
+    </form>
+    <!--FIN DEL DIV WRAPPER-->
+    <!-- Content ends -->
+</body>
+</html>

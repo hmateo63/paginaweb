@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+
+.boletos_busO400{
+	margin:0 auto 0 auto; 
+	width:668px; 
+}
+.boletos_busO400 .busO400{
+	background-image:url(../images/o400_bg_ida.png);
+	background-repeat:no-repeat;
+	width:672px;
+	height:149px;
+	padding-left:0px;
+	float:left;
+}
+.boletos_busO400 .estados{
+	padding-top:20px;
+	float:left;
+}
+.boletos_busO400 .fila1{
+	margin-left:100px;
+	margin-top:10px;
+}
+.boletos_busO400 .fila2{
+	margin-left:100px;
+}
+.boletos_busO400 .td{
+	text-align:right;
+}
+.boletos_busO400 .td span{
+	padding-right:5px;
+}
+.boletos_busO400 .libre, .boletos_busO400 .ocupado, .boletos_busO400 .reservado, .boletos_busO400 .compra{
+	background-color:transparent;
+	width:40px;
+	height:27px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:1.1em;
+	text-shadow:2px 2px #000;
+	text-align:center;
+	font-weight:bold;
+	color:#FFF;
+	/*border:1px solid #000;*/
+}
+.boletos_busO400 .libre{
+	cursor:pointer;
+	background-image:url(../images/butaca-libre.png);
+	background-repeat:no-repeat;
+}
+.boletos_busO400 .ocupado{
+	cursor:default;
+	background-image:url(../images/butaca-ocupada.png);
+	background-repeat:no-repeat;
+
+}
+.boletos_busO400 .reservado{
+	cursor:default;
+	background-image:url(../images/butaca-reservada.png);
+	background-repeat:no-repeat;
+}
+.boletos_busO400 .compra{
+	cursor:pointer;
+	background-image:url(../images/butaca-compra.png);
+	background-repeat:no-repeat;
+}
+.boletos_busO400 .pasillo{
+	width:35px;
+	height:18px;
+}

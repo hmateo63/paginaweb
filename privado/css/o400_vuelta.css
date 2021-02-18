@@ -1,0 +1,79 @@
+@charset "utf-8";
+.boletos_busO400_vuelta{
+	margin:0 auto 0 auto; 
+	width:668px; 
+}
+.boletos_busO400_vuelta .busO400_vuelta{
+	background-image:url(../images/o400_bg_vuelta.png);
+	background-repeat:no-repeat;
+	width:668px;
+	height:149px;
+	padding-left:8px;
+	float:left;
+}
+.boletos_busO400_vuelta .estados{
+	margin-top:20px;
+	float:left;
+}
+.boletos_busO400_vuelta .fila1{
+	margin-left:10px;
+	margin-top:2px;
+}
+.boletos_busO400_vuelta .fila2{
+	margin-left:55px;
+}
+.boletos_busO400_vuelta .td{
+	text-align:right;
+}
+.boletos_busO400_vuelta .td span{
+	padding-right:5px;
+}
+.boletos_busO400_vuelta .libre, .boletos_busO400_vuelta .ocupado, .boletos_busO400_vuelta .reservado, .boletos_busO400_vuelta .compra, .boletos_busO400_vuelta .apartada{
+	background-color:transparent;
+	width:40px;
+	height:27px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:1.1em;
+	text-shadow:2px 2px #000;
+	text-align:center;
+	font-weight:bold;
+	color:#FFF;
+	/*border:1px solid #000;*/
+}
+.boletos_busO400_vuelta .apartada{
+	cursor:pointer;
+	background-image:url(../images/butaca-apartada-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busO400_vuelta .noLocal{
+	cursor:default;
+	background-image:url(../images/butaca-noLocal-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busO400_vuelta .libre{
+	cursor:pointer;
+	background-image:url(../images/butaca-libre-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busO400_vuelta .ocupado{
+	cursor:default;
+	background-image:url(../images/butaca-ocupada-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busO400_vuelta .reservado{
+	cursor:default;
+	background-image:url(../images/butaca-reservada-v.png);
+	background-repeat:no-repeat;
+}
+.boletos_busO400_vuelta .compra{
+	cursor:pointer;
+	background-image:url(../images/butaca-compra-v.png);
+	background-repeat:no-repeat;
+
+}
+.boletos_busO400_vuelta .pasillo{
+	width:35px;
+	height:18px;
+}

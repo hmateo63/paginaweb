@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+.boletos_bus19_ida{
+	margin:0 auto 0 auto; 
+	width:410px; 
+}
+.boletos_bus19_ida .bus19_ida{
+	background-image:url(../images/19_bg_ida.png);
+	background-repeat:no-repeat;
+	width:410px;
+	height:190px;
+	padding-top:10px;
+	padding-left:10px;
+	float:left;
+}
+.boletos_bus19_ida .estados{
+	padding-top:20px;
+	float:left;
+}
+.boletos_bus19_ida .fila1{
+	margin-top:15px;
+	margin-left:110px;
+}
+.boletos_bus19_ida .fila2{
+	margin-left:115px;
+}
+.boletos_bus19_ida .td{
+	text-align:right;
+	
+}
+.boletos_bus19_ida .td span{
+	padding-right:5px;
+}
+.boletos_bus19_ida .libre, .boletos_bus19_ida .ocupado, .boletos_bus19_ida .reservado, .boletos_bus19_ida .compra, .boletos_bus19_ida .piloto, .boletos_bus19_ida .apartada, .boletos_bus19_ida .noLocal{
+	background-color:transparent;
+	width:45px;
+	height:31px;
+	border:none;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-size:0.75em;
+	text-shadow:1px 1px #EEE;
+	text-align:right;
+	margin-left:5px;
+	/*border:1px solid #000;*/
+}
+.boletos_bus19_ida .apartada{
+	cursor:pointer;
+	background-image:url(../images/butaca-apartada.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus19_ida .noLocal{
+	cursor:default;
+	background-image:url(../images/butaca-noLocal.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus19_ida .libre{
+	cursor:pointer;
+	background-image:url(../images/butaca-libre.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus19_ida .piloto{
+	cursor:default;
+	background-image:url(../images/butaca-piloto.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus19_ida .ocupado{
+	cursor:default;
+	background-image:url(../images/butaca-ocupada.png);
+	background-repeat:no-repeat;
+
+}
+.boletos_bus19_ida .reservado{
+	cursor:default;
+	background-image:url(../images/butaca-reservada.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus19_ida .compra{
+	cursor:pointer;
+	background-image:url(../images/butaca-compra.png);
+	background-repeat:no-repeat;
+}
+.boletos_bus19_ida .pasillo{
+	width:35px;
+	height:20px;
+}
